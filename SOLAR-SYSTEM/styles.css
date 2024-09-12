@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: black;
+}
+
+.container {
+    font-size: 10px;
+    width: 40em;
+    height: 40em;
+    position: relative;
+}
+
+/* Sol */
+.sun { /* Cambié "son" a "sun" */
+    position: absolute;
+    top: 15em;
+    left: 15em;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    background-color: yellow;
+    box-shadow: 0 0 3em white;
+}
+
+/* Tierra y Luna, añadiendo animaciones */
+.earth, .moon {
+    position: absolute;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+    border-width: 0.1em 0.1em 0 0;
+    border-radius: 50%;
+}
+
+.earth {
+    top: 5em;
+    left: 5em;
+    width: 30em;
+    height: 30em;
+    animation: orbit-earth 36.5s linear infinite; /* Tiempo de animación corregido */
+}
+
+.moon {
+    top: 0;
+    right: 0;
+    width: 8em;
+    height: 8em;
+    animation: orbit-moon 2.7s linear infinite; /* Diferente animación para la Luna */
+}
+
+/* Contenido antes de la Tierra y la Luna */
+.earth::before, .moon::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.earth::before {
+    top: 2.8em;
+    right: 2.8em;
+    height: 3em;
+    width: 3em;
+    background-color: blue; /* Cambié color para representar la Tierra */
+}
+
+.moon::before {
+    top: 0;
+    right: 0;
+    height: 1em;
+    width: 1em;
+    background-color: gray; /* Color para la Luna */
+}
+
+/* Animación de órbita para la Tierra */
+@keyframes orbit-earth {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animación de órbita para la Luna */
+@keyframes orbit-moon {
+    to {
+        transform: rotate(360deg);}
+    }
